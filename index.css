@@ -1,0 +1,604 @@
+
+    /* Fix for mobile button overflow and wrapping */
+    @media (max-width: 600px) {
+      .cta-button, .mobile-consult-bar a {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px 10px;
+        font-size: 1.1rem;
+        white-space: normal;
+        word-break: break-word;
+        text-align: center;
+        display: block;
+      }
+      .mobile-consult-bar {
+        padding: 0;
+      }
+    }
+    /* Mobile Fixed Bottom Bar */
+    .mobile-consult-bar {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #00464d;
+      color: #fff;
+      text-align: center;
+      z-index: 2000;
+      padding: 16px 0 12px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+    }
+    .mobile-consult-bar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .mobile-consult-bar.hide {
+      transform: translateY(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .mobile-consult-bar.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    @media (max-width: 600px) {
+      .mobile-consult-bar {
+        display: block;
+      }
+    }
+    @media (min-width: 601px) {
+      .mobile-consult-bar {
+        display: block;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        max-width: 100vw;
+        border-radius: 0;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+      }
+      .mobile-consult-bar a {
+        font-size: 1.15rem;
+        padding: 16px 0;
+      }
+    }
+    /* Universal Box-sizing and Font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif; /* Using Inter font */
+    }
+
+    /* Body Styling */
+    body {
+      background: #EDF1F4; /* Light grey background */
+      color: #222; /* Dark text color */
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased; /* Better font rendering */
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Header Styling */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky; /* Sticky header for navigation */
+      top: 0;
+      z-index: 1000; /* Ensure header is above other content */
+    }
+    header img {
+      height: 40px; /* Logo height */
+    }
+    header nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600; /* Semi-bold for nav links */
+      color: #333; /* Dark grey for nav links */
+      transition: color 0.3s ease; /* Smooth hover effect */
+    }
+    header nav a:hover {
+      color: #1AB16D; /* Green on hover */
+    }
+    .cta-button { /* General CTA button style */
+      background: #18b394 ; /* Green background */
+      padding: 10px 20px;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #158C57; /* Darker green on hover */
+    }
+
+    /* Main Landing Page Container */
+    .landing-page-container {
+      width: 100%; /* Set to full width */
+      background: black; /* White background for the main container */
+      overflow: hidden; /* Ensures child elements don't break layout */
+      margin-top: 40px; /* Space from header */
+      margin-bottom: 40px; /* Space from footer */
+    }
+
+    /* Hero Section Styling - Now part of the main container */
+    .hero-content {
+      text-align: left; /* Changed to left */
+      padding: 100px 50px; /* Increased horizontal padding for better left alignment */
+  
+      background-attachment: fixed; /* Added for fixed background */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 60vh;
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      line-height: 1.2;
+      max-width: 700px; /* Limit width for readability */
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      opacity: 0.9;
+      max-width: 700px; /* Limit width for readability */
+    }
+    .hero-content .eligibility {
+      font-size: 1rem;
+      margin-bottom: 30px;
+      font-weight: 400;
+      opacity: 0.8;
+      max-width: 700px; /* Limit width for readability */
+    }
+    .hero-content .cta-button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      display: inline-block; /* Keep as inline-block for button behavior */
+    }
+    .hero-content .cta-subtitle {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      opacity: 0.8;
+      max-width: 700px; /* Limit width for readability */
+    }
+
+    /* General Content Block Styling */
+    .content-block {
+      padding: 80px 50px; /* Increased horizontal padding for inner content */
+      text-align: left; /* Changed to left */
+    }
+    .content-block h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: #333;
+    }
+
+    /* Image after Hero */
+    .hero-image-container {
+      width: 100%;
+      display: flex; /* Added for centering */
+      justify-content: center; /* Added for horizontal centering */
+      align-items: center; /* Added for vertical centering */
+      background: #fff; /* side gaps ke liye background */
+      overflow: hidden;
+    }
+
+    .hero-image-container img {
+      width: auto;         /* height ke hisaab se adjust hoga */
+      max-height: 400px;   /* container ke andar hi rahe */
+      max-width: 120%;     /* thodi si width extra stretch */
+      object-fit: contain; /* image crop nahi hogi */
+      display: block;
+    }
+
+    /* Pain Section Styling */
+    .problems-content {
+      background: #f2f6f0; /* White background for pain section */
+      padding: 0; /* Padding handled by content-block */
+    }
+    .problems-content ul {
+      list-style: none;
+      max-width: 700px; /* Keep list content readable */
+      margin: 0; /* Removed auto margin to align left */
+      padding: 0;
+    }
+    .problems-content li {
+      padding: 18px 25px;
+      background: #F9F9F9; /* Light grey for list items */
+      border-radius: 8px;
+      margin: 12px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+      text-align: left; /* Align list items text to left */
+    }
+    .problems-content li span { /* For emojis */
+      margin-right: 15px;
+      font-size: 1.4rem;
+    }
+    .problems-content .reassurance {
+      text-align: left; /* Changed to left */
+      margin-top: 40px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* Solution Section Styling */
+    .solutions-content {
+      background: #222; /* Dark background for solutions */
+      color: #fff;
+      padding: 80px 50px; /* Increased horizontal padding */
+      text-align: left; /* Changed to left */
+    }
+    .solutions-content h2 {
+      color: #fff; /* White heading */
+    }
+    .solutions-content ul {
+      list-style: none;
+      max-width: 700px; /* Keep list content readable */
+      margin: 0; /* Removed auto margin to align left */
+      padding: 0;
+    }
+    .solutions-content li {
+      padding: 18px 25px;
+      background: #333; /* Slightly lighter dark for list items */
+      border-radius: 8px;
+      margin: 12px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+      text-align: left; /* Align list items text to left */
+    }
+    .solutions-content li .icon { /* For Font Awesome icons */
+      margin-right: 15px;
+      font-size: 1.4rem;
+      color: #1AB16D; /* Green checkmark */
+      width: 25px; /* Fixed width for consistent alignment */
+      text-align: center;
+    }
+    .solutions-content .cta-wrapper {
+      text-align: left; /* Changed to left */
+      margin-top: 50px;
+    }
+    .solutions-content .cta-button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+    }
+
+    /* Proof Section Styling */
+    .proof-content {
+      background: #F2F8F4; /* Light green background */
+      padding: 80px 50px; /* Increased horizontal padding */
+      text-align: left; /* Changed to left */
+    }
+    .proof-content h2 {
+      color: #333;
+      margin-bottom: 50px;
+    }
+    .testimonials-slider {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto 30px auto;
+    }
+    .testimonials-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(.4,1.3,.5,1);
+      will-change: transform;
+    }
+    .testimonial {
+      min-width: 100%;
+      box-sizing: border-box;
+      background: #fff;
+      padding: 60px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      position: relative;
+      text-align: left;
+    }
+    .testimonial::before {
+      content: "“";
+      font-size: 3rem;
+      color: #1AB16D;
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      opacity: 0.2;
+    }
+    .testimonial p {
+      margin-top: 15px;
+      font-style: normal;
+      font-weight: 600;
+      color: #555;
+      text-align: right;
+    }
+    @media (max-width: 600px) {
+      .testimonials-slider {
+        max-width: 95vw;
+      }
+      .testimonial {
+        padding: 18px 60px;
+        font-size: 0.98rem;
+      }
+    }
+    .stats {
+      display: flex;
+      justify-content: flex-start; /* Changed to flex-start */
+      gap: 60px; /* More space between stats */
+      margin-top: 70px;
+      flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    }
+    .stat {
+      text-align: left; /* Changed to left */
+      font-weight: 700;
+      font-size: 1.5rem; /* Larger stat numbers */
+      color: #1AB16D; /* Green for stats */
+      position: relative;
+      padding-top: 60px;
+    }
+    .stat::before { /* Icon for stats */
+      content: "★"; /* Placeholder icon */
+      font-size: 2rem;
+      color: #1AB16D;
+      position: absolute;
+      top: 0;
+      left: 0; /* Changed to left: 0 */
+      transform: none; /* Removed transform */
+    }
+    .stat:nth-child(1)::before { content: "↓"; } /* Loan reduction icon */
+    .stat:nth-child(2)::before { content: "👥"; } /* Clients guided icon */
+    .stat:nth-child(3)::before { content: "📞"; } /* Call icon */
+    .stat span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    /* Form Section Styling */
+    .form-content {
+      background: #fff; /* White background for form */
+      padding: 80px 50px; /* Increased horizontal padding */
+      text-align: left; /* Changed to left */
+    }
+    .form-content h2 {
+      margin-bottom: 40px;
+    }
+    .form-fields-container { /* Container for form elements */
+      max-width: 600px; /* Limit form width to keep it readable */
+      margin: 0; /* Removed auto margin to align left */
+      padding: 30px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: left; /* Align form labels/inputs to left */
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      -webkit-appearance: none; /* Remove default select styling */
+      -moz-appearance: none;
+      appearance: none;
+      background-color: #fff;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #1AB16D;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(26, 177, 109, 0.2);
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 18px;
+      padding-right: 40px; /* Make space for the arrow */
+    }
+    .form-submit-button {
+      background: #1AB16D;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      width: auto; /* Allow button to size based on content */
+      display: block; /* Make it a block element */
+      margin: 30px 0 0 0; /* Align left */
+    }
+    .form-submit-button:hover {
+      background-color: #158C57;
+      transform: translateY(-2px);
+    }
+
+
+    /* Footer Styling */
+    footer {
+      background: #023C3D; /* Dark blue-green background */
+      color: #fff;
+      text-align: left; /* Changed to left */
+      padding: 50px 50px; /* Increased horizontal padding */
+      margin-top: 0; /* No margin-top as it's outside the main container */
+      font-size: 0.95rem;
+    }
+    footer p {
+      margin-bottom: 10px;
+    }
+    footer a {
+      color: #1AB16D; /* Green for links */
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+
+    }
+    footer a:hover {
+      color: #fff; /* White on hover */
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      header nav {
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+      }
+      header nav a {
+        margin: 0 10px;
+      }
+      .landing-page-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 0; /* Removed border-radius for full width look */
+      }
+      .hero-content {
+        padding: 80px 20px; /* Adjust padding for smaller screens */
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      .content-block {
+        padding: 60px 20px; /* Adjust padding for smaller screens */
+      }
+      .content-block h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+      }
+      .problems-content ul, .solutions-content ul, .testimonials, .form-fields-container {
+        margin: 0; /* Ensure left alignment on smaller screens */
+      }
+      .problems-content li, .solutions-content li {
+        font-size: 1rem;
+        padding: 15px 20px;
+      }
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+      .stats {
+        gap: 30px;
+        justify-content: flex-start; /* Ensure left alignment on smaller screens */
+      }
+      .stat {
+        font-size: 1.3rem;
+        padding-top: 45px;
+      }
+      .stat span {
+        font-size: 0.85rem;
+      }
+      .hero-image-container img {
+        max-width: 100%; /* Ensure full width on smaller screens too */
+      }
+      .form-fields-container {
+        padding: 20px;
+      }
+      .form-submit-button {
+        margin: 30px 0 0 0; /* Align left on smaller screens */
+      }
+      footer {
+        padding: 40px 20px; /* Adjust padding for smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+      }
+      header .cta-button {
+        margin-top: 15px;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .hero-content .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+      .content-block {
+        padding: 40px 15px;
+      }
+      .content-block h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+      }
+      .problems-content li span, .solutions-content li .icon {
+        font-size: 1.2rem;
+        margin-right: 10px;
+      }
+      .stats {
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .stats {
+          display: flex;
+          flex-direction: row;
+          gap: 50px;
+          flex-wrap: nowrap; /* Prevent icons from wrapping to next line */
+          overflow-x: auto;  /* Optional: allows horizontal scroll if icons overflow */
+          align-items: center;
+        }
+      }
+      .stat {
+        font-size: 1.2rem;
+      }
+      .hero-image-container img {
+        max-width: 100%; /* Ensure full width on very small screens too */
+      }
+    }
+  
