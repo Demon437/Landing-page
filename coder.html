@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MinPay – Minimise What You Pay</title>
+  <!-- Google Fonts: Inter for modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Meta Description for SEO -->
+  <meta name="description" content="Settle your loans at 30% of the amount with MinPay. Pay less, live free, and protect your CIBIL score. Expert legal consultation available.">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* Fix for mobile button overflow and wrapping */
+    @media (max-width: 600px) {
+      .cta-button, .mobile-consult-bar a {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px 10px;
+        font-size: 1.1rem;
+        white-space: normal;
+        word-break: break-word;
+        text-align: center;
+        display: block;
+      }
+      .mobile-consult-bar {
+        padding: 0;
+      }
+    }
+    /* Mobile Fixed Bottom Bar */
+    .mobile-consult-bar {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #00464d;
+      color: #fff;
+      text-align: center;
+      z-index: 2000;
+      padding: 16px 0 12px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+    }
+    .mobile-consult-bar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .mobile-consult-bar.hide {
+      transform: translateY(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .mobile-consult-bar.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    @media (max-width: 600px) {
+      .mobile-consult-bar {
+        display: block;
+      }
+    }
+    @media (min-width: 601px) {
+      .mobile-consult-bar {
+        display: block;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        max-width: 100vw;
+        border-radius: 0;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+      }
+      .mobile-consult-bar a {
+        font-size: 1.15rem;
+        padding: 16px 0;
+      }
+    }
+    /* Universal Box-sizing and Font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif; /* Using Inter font */
+    }
+
+    /* Body Styling */
+    body {
+      background: #EDF1F4; /* Light grey background */
+      color: #222; /* Dark text color */
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased; /* Better font rendering */
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Header Styling */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky; /* Sticky header for navigation */
+      top: 0;
+      z-index: 1000; /* Ensure header is above other content */
+    }
+    header img {
+      height: 40px; /* Logo height */
+    }
+    header nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600; /* Semi-bold for nav links */
+      color: #333; /* Dark grey for nav links */
+      transition: color 0.3s ease; /* Smooth hover effect */
+    }
+    header nav a:hover {
+      color: #1AB16D; /* Green on hover */
+    }
+    .cta-button { /* General CTA button style */
+      background: #18b394 ; /* Green background */
+      padding: 10px 20px;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #158C57; /* Darker green on hover */
+    }
+
+    /* Main Landing Page Container */
+    .landing-page-container {
+      width: 100%; /* Set to full width */
+      background: black; /* White background for the main container */
+      overflow: hidden; /* Ensures child elements don't break layout */
+      margin-top: 40px; /* Space from header */
+      margin-bottom: 40px; /* Space from footer */
+    }
+
+    /* Hero Section Styling - Now part of the main container */
+    .hero-content {
+      text-align: left; /* Changed to left */
+      padding: 100px 50px; /* Increased horizontal padding for better left alignment */
+  
+      background-attachment: fixed; /* Added for fixed background */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 60vh;
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      line-height: 1.2;
+      max-width: 700px; /* Limit width for readability */
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      opacity: 0.9;
+      max-width: 700px; /* Limit width for readability */
+    }
+    .hero-content .eligibility {
+      font-size: 1rem;
+      margin-bottom: 30px;
+      font-weight: 400;
+      opacity: 0.8;
+      max-width: 700px; /* Limit width for readability */
+    }
+    .hero-content .cta-button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      display: inline-block; /* Keep as inline-block for button behavior */
+    }
+    .hero-content .cta-subtitle {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      opacity: 0.8;
+      max-width: 700px; /* Limit width for readability */
+    }
+
+    /* General Content Block Styling */
+    .content-block {
+      padding: 80px 50px; /* Increased horizontal padding for inner content */
+      text-align: left; /* Changed to left */
+    }
+    .content-block h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: #333;
+    }
+
+    /* Image after Hero */
+    .hero-image-container {
+      width: 100%;
+      display: flex; /* Added for centering */
+      justify-content: center; /* Added for horizontal centering */
+      align-items: center; /* Added for vertical centering */
+      background: #fff; /* side gaps ke liye background */
+      overflow: hidden;
+    }
+
+    .hero-image-container img {
+      width: auto;         /* height ke hisaab se adjust hoga */
+      max-height: 400px;   /* container ke andar hi rahe */
+      max-width: 120%;     /* thodi si width extra stretch */
+      object-fit: contain; /* image crop nahi hogi */
+      display: block;
+    }
+
+    /* Pain Section Styling */
+    .problems-content {
+      background: #f2f6f0; /* White background for pain section */
+      padding: 0; /* Padding handled by content-block */
+    }
+    .problems-content ul {
+      list-style: none;
+      max-width: 700px; /* Keep list content readable */
+      margin: 0; /* Removed auto margin to align left */
+      padding: 0;
+    }
+    .problems-content li {
+      padding: 18px 25px;
+      background: #F9F9F9; /* Light grey for list items */
+      border-radius: 8px;
+      margin: 12px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+      text-align: left; /* Align list items text to left */
+    }
+    .problems-content li span { /* For emojis */
+      margin-right: 15px;
+      font-size: 1.4rem;
+    }
+    .problems-content .reassurance {
+      text-align: left; /* Changed to left */
+      margin-top: 40px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* Solution Section Styling */
+    .solutions-content {
+      background: #222; /* Dark background for solutions */
+      color: #fff;
+      padding: 80px 50px; /* Increased horizontal padding */
+      text-align: left; /* Changed to left */
+    }
+    .solutions-content h2 {
+      color: #fff; /* White heading */
+    }
+    .solutions-content ul {
+      list-style: none;
+      max-width: 700px; /* Keep list content readable */
+      margin: 0; /* Removed auto margin to align left */
+      padding: 0;
+    }
+    .solutions-content li {
+      padding: 18px 25px;
+      background: #333; /* Slightly lighter dark for list items */
+      border-radius: 8px;
+      margin: 12px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+      text-align: left; /* Align list items text to left */
+    }
+    .solutions-content li .icon { /* For Font Awesome icons */
+      margin-right: 15px;
+      font-size: 1.4rem;
+      color: #1AB16D; /* Green checkmark */
+      width: 25px; /* Fixed width for consistent alignment */
+      text-align: center;
+    }
+    .solutions-content .cta-wrapper {
+      text-align: left; /* Changed to left */
+      margin-top: 50px;
+    }
+    .solutions-content .cta-button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+    }
+
+    /* Proof Section Styling */
+    .proof-content {
+      background: #F2F8F4; /* Light green background */
+      padding: 80px 50px; /* Increased horizontal padding */
+      text-align: left; /* Changed to left */
+    }
+    .proof-content h2 {
+      color: #333;
+      margin-bottom: 50px;
+    }
+    .testimonials-slider {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto 30px auto;
+    }
+    .testimonials-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(.4,1.3,.5,1);
+      will-change: transform;
+    }
+    .testimonial {
+      min-width: 100%;
+      box-sizing: border-box;
+      background: #fff;
+      padding: 60px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      position: relative;
+      text-align: left;
+    }
+    .testimonial::before {
+      content: "“";
+      font-size: 3rem;
+      color: #1AB16D;
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      opacity: 0.2;
+    }
+    .testimonial p {
+      margin-top: 15px;
+      font-style: normal;
+      font-weight: 600;
+      color: #555;
+      text-align: right;
+    }
+    @media (max-width: 600px) {
+      .testimonials-slider {
+        max-width: 95vw;
+      }
+      .testimonial {
+        padding: 18px 60px;
+        font-size: 0.98rem;
+      }
+    }
+    .stats {
+      display: flex;
+      justify-content: flex-start; /* Changed to flex-start */
+      gap: 60px; /* More space between stats */
+      margin-top: 70px;
+      flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    }
+    .stat {
+      text-align: left; /* Changed to left */
+      font-weight: 700;
+      font-size: 1.5rem; /* Larger stat numbers */
+      color: #1AB16D; /* Green for stats */
+      position: relative;
+      padding-top: 60px;
+    }
+    .stat::before { /* Icon for stats */
+      content: "★"; /* Placeholder icon */
+      font-size: 2rem;
+      color: #1AB16D;
+      position: absolute;
+      top: 0;
+      left: 0; /* Changed to left: 0 */
+      transform: none; /* Removed transform */
+    }
+    .stat:nth-child(1)::before { content: "↓"; } /* Loan reduction icon */
+    .stat:nth-child(2)::before { content: "👥"; } /* Clients guided icon */
+    .stat:nth-child(3)::before { content: "📞"; } /* Call icon */
+    .stat span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    /* Form Section Styling */
+    .form-content {
+      background: #fff; /* White background for form */
+      padding: 80px 50px; /* Increased horizontal padding */
+      text-align: left; /* Changed to left */
+    }
+    .form-content h2 {
+      margin-bottom: 40px;
+    }
+    .form-fields-container { /* Container for form elements */
+      max-width: 600px; /* Limit form width to keep it readable */
+      margin: 0; /* Removed auto margin to align left */
+      padding: 30px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: left; /* Align form labels/inputs to left */
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      -webkit-appearance: none; /* Remove default select styling */
+      -moz-appearance: none;
+      appearance: none;
+      background-color: #fff;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #1AB16D;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(26, 177, 109, 0.2);
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 18px;
+      padding-right: 40px; /* Make space for the arrow */
+    }
+    .form-submit-button {
+      background: #1AB16D;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      width: auto; /* Allow button to size based on content */
+      display: block; /* Make it a block element */
+      margin: 30px 0 0 0; /* Align left */
+    }
+    .form-submit-button:hover {
+      background-color: #158C57;
+      transform: translateY(-2px);
+    }
+
+
+    /* Footer Styling */
+    footer {
+      background: #023C3D; /* Dark blue-green background */
+      color: #fff;
+      text-align: left; /* Changed to left */
+      padding: 50px 50px; /* Increased horizontal padding */
+      margin-top: 0; /* No margin-top as it's outside the main container */
+      font-size: 0.95rem;
+    }
+    footer p {
+      margin-bottom: 10px;
+    }
+    footer a {
+      color: #1AB16D; /* Green for links */
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+
+    }
+    footer a:hover {
+      color: #fff; /* White on hover */
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      header nav {
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+      }
+      header nav a {
+        margin: 0 10px;
+      }
+      .landing-page-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 0; /* Removed border-radius for full width look */
+      }
+      .hero-content {
+        padding: 80px 20px; /* Adjust padding for smaller screens */
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      .content-block {
+        padding: 60px 20px; /* Adjust padding for smaller screens */
+      }
+      .content-block h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+      }
+      .problems-content ul, .solutions-content ul, .testimonials, .form-fields-container {
+        margin: 0; /* Ensure left alignment on smaller screens */
+      }
+      .problems-content li, .solutions-content li {
+        font-size: 1rem;
+        padding: 15px 20px;
+      }
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+      .stats {
+        gap: 30px;
+        justify-content: flex-start; /* Ensure left alignment on smaller screens */
+      }
+      .stat {
+        font-size: 1.3rem;
+        padding-top: 45px;
+      }
+      .stat span {
+        font-size: 0.85rem;
+      }
+      .hero-image-container img {
+        max-width: 100%; /* Ensure full width on smaller screens too */
+      }
+      .form-fields-container {
+        padding: 20px;
+      }
+      .form-submit-button {
+        margin: 30px 0 0 0; /* Align left on smaller screens */
+      }
+      footer {
+        padding: 40px 20px; /* Adjust padding for smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+      }
+      header .cta-button {
+        margin-top: 15px;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .hero-content .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+      .content-block {
+        padding: 40px 15px;
+      }
+      .content-block h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+      }
+      .problems-content li span, .solutions-content li .icon {
+        font-size: 1.2rem;
+        margin-right: 10px;
+      }
+      .stats {
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .stats {
+          display: flex;
+          flex-direction: row;
+          gap: 50px;
+          flex-wrap: nowrap; /* Prevent icons from wrapping to next line */
+          overflow-x: auto;  /* Optional: allows horizontal scroll if icons overflow */
+          align-items: center;
+        }
+      }
+      .stat {
+        font-size: 1.2rem;
+      }
+      .hero-image-container img {
+        max-width: 100%; /* Ensure full width on very small screens too */
+      }
+    }
+  </style>
+</head>
+<script>
+// Scroll show/hide for consult bar (all screens)
+document.addEventListener('DOMContentLoaded', function() {
+  var bar = document.querySelector('.mobile-consult-bar');
+  if (!bar) return;
+  var lastScroll = window.scrollY;
+  var ticking = false;
+  // Hide bar initially
+  bar.classList.remove('show');
+  bar.classList.add('hide');
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        var currScroll = window.scrollY;
+        if (currScroll > lastScroll + 5) {
+          // Scrolling down: show bar
+          bar.classList.add('show');
+          bar.classList.remove('hide');
+        } else if (currScroll < lastScroll - 5) {
+          // Scrolling up: hide bar
+          bar.classList.add('hide');
+          bar.classList.remove('show');
+        }
+        lastScroll = currScroll;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+});
+</script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="https://i.ibb.co/WyQkXzD/minpay-logo.png" alt="MinPay Logo">
+    <nav>
+      <a href="#problems-section">Problems</a>
+      <a href="#solutions-section">Solutions</a>
+      <a href="#proof-section">Proof</a>
+    </nav>
+    <a href="#form-section" class="cta-button">Book Consultation</a>
+  </header>
+
+  <!-- Main Landing Page Container -->
+  <div class="landing-page-container">
+
+  
+
+    <!-- Image after Hero -->
+    <div class="hero-image-container">
+      <img src="Images/new image.jpg" alt="MinPay Debt Relief Solutions" />
+    </div>
+
+
+
+  <!-- 1. Hero Section (Above the Fold) -->
+    <div class="hero-content" id="hero-section">
+      <h2>Hero Section</h2>
+      <h1>Settle Your Loan at 30% of Amount</h1>
+      <p>“Pay Less. Live Free. Protect Your CIBIL.”</p>
+      <p class="eligibility">For Personal Loans & Credit Cards above ₹1 lakh</p>
+      <a href="#form-section" class="cta-button">Book Consultation @ ₹51</a>
+      <p class="cta-subtitle">(Secure · Lawyer Verified · Call in 24 hrs)</p>
+    </div>
+
+
+
+
+    <!-- 2. Pain Section -->
+    <div class="content-block problems-content" id="problems-section">
+      <h3>Pain Section</h3>
+      <h2>Facing these problems every day?</h2>
+      <ul>
+        <li><span>💸</span> EMI taking away most of your salary</li>
+        <li><span>📉</span> Credit card dues piling up every month</li>
+        <li><span>📞</span> Banks or recovery agents calling daily</li>
+        <li><span>⚠️</span> Fear of losing CIBIL score and future loans</li>
+      </ul>
+      <p class="reassurance">You’re not alone. 500+ people have already found relief with MinPay.</p>
+    </div>
+
+    <!-- 3. Solution Section -->
+    <div class="solutions-content" id="solutions-section">
+      <h3>Solution Section </h3>
+      <h2>What Our Lawyers Do for You</h2>
+      <ul>
+        <li><span class="icon"><i class="fas fa-hand-holding-usd"></i></span> Settle loans at 30–40% (eligible cases)</li>
+        <li><span class="icon"><i class="fas fa-user-shield"></i></span> Stop bank & agent harassment legally</li>
+        <li><span class="icon"><i class="fas fa-chart-line"></i></span> Reduce EMI through proper talks with lenders</li>
+        <li><span class="icon"><i class="fas fa-credit-card"></i></span> Guide you on CIBIL and how to rebuild</li>
+      </ul>
+      <div class="cta-wrapper">
+        <a href="#form-section" class="cta-button">Pay ₹51 & Talk to a Lawyer</a>
+      </div>
+    </div>
+
+    <!-- 4. Proof Section -->
+    <div class="proof-content" id="proof-section">
+      <h3>Proof Section</h3>
+      <h2>Real People. Real Results.</h2>
+      <div class="testimonials-slider">
+        <div class="testimonials-track">
+          <div class="testimonial">
+            I had a ₹2.5L personal loan. MinPay helped me settle it under ₹1L. Huge relief.
+            <p>– Rajesh, Mumbai</p>
+          </div>
+          <div class="testimonial">
+            The calls stopped after MinPay lawyers stepped in. I finally sleep in peace.
+            <p>– Smita, Pune</p>
+          </div>
+          <div class="testimonial">
+            ₹51 gave me clear answers. No hidden traps.
+            <p>– Arun, Bengaluru</p>
+          </div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">38%<span>average loan reduction</span></div>
+        <div class="stat">500+<span>clients guided</span></div>
+        <div class="stat">24 hrs<span>call within</span></div>
+      </div>
+    </div>
+
+    <!-- Zoho Form Integration - Now a native HTML form -->
+    <div class="form-content" id="form-section">
+      <h2>Book Your Consultation</h2>
+      <div class="form-fields-container">
+        <form action="#" method="POST"> <!-- Action attribute should point to your form submission endpoint -->
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" pattern="[0-9]{10}" title="Please enter a 10-digit mobile number" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="Enter your city" required>
+          </div>
+          <div class="form-group">
+            <label for="monthlyIncome">Monthly Income</label>
+            <input type="text" id="monthlyIncome" name="monthlyIncome" placeholder="e.g., 50000" pattern="[0-9]+" title="Please enter a valid number" required>
+          </div>
+          <div class="form-group">
+            <label for="totalLoanAmount">Total Loan Amount</label>
+            <select id="totalLoanAmount" name="totalLoanAmount" required>
+              <option value="">- Select -</option>
+              <option value="1-3 lakh">1 - 3 lakh</option>
+              <option value="3-5 lakh">3 - 5 lakh</option>
+              <option value="5-10 lakh">5 - 10 lakh</option>
+              <option value="more than 10 lakh">more than 10 lakh</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="paymentStatus">Payment Status</label>
+            <select id="paymentStatus" name="paymentStatus" required>
+              <option value="">- Select -</option>
+              <option value="paying full amount with difficulty">paying full amount with difficulty</option>
+              <option value="paying minimum amount from few months">paying minimum amount from few months</option>
+              <option value="not paying & getting collection calls">not paying & getting collection calls</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit-button">Submit</button>
+        </form>
+      </div>
+    </div>
+
+  </div> <!-- End .landing-page-container -->
+
+  <!-- Footer - This remains outside the main container -->
+
+  <!-- Mobile Fixed Bottom Bar -->
+  <div class="mobile-consult-bar">
+    <a href="#form-section">BOOK A CONSULTATION</a>
+  </div>
+
+  <footer>
+    <p>Our team will call you within 24 hours of booking the consultation.</p>
+    <p>📞 Call us on <a href="tel:+919876543210">+91 98765 43210</a> in case of any issues.</p>
+  </footer>
+
+</body>
+<script>
+// Testimonial slider logic
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.testimonials-track');
+  const slides = document.querySelectorAll('.testimonial');
+  let idx = 0;
+  const total = slides.length;
+  function goToSlide(i) {
+    track.style.transform = `translateX(-${i * 100}%)`;
+  }
+  function nextSlide() {
+    idx = (idx + 1) % total;
+    goToSlide(idx);
+  }
+  setInterval(nextSlide, 3500); // 3.5 seconds per slide
+  goToSlide(0);
+});
+</script>
+</html>
