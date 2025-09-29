@@ -81,12 +81,17 @@
 
     /* Body Styling */
     body {
-      background: #EDF1F4; /* Light grey background */
+      background: #000; /* Black background to match header/hero */
       color: #222; /* Dark text color */
       line-height: 1.6;
       -webkit-font-smoothing: antialiased; /* Better font rendering */
       -moz-osx-font-smoothing: grayscale;
     }
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
 
     /* Header Styling */
     header {
@@ -102,6 +107,87 @@
     }
     header img {
       height: 40px; /* Logo height */
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1200;
+      margin-left: 10px;
+      margin-right: 0;
+      position: static;
+    }
+    .hamburger span {
+      display: block;
+      height: 4px;
+      width: 28px;
+      background: #222;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.5); /* More transparent */
+      z-index: 1100;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-top: 70px; /* below header */
+      transition: opacity 0.3s;
+    }
+    .mobile-nav.active {
+      display: flex;
+    }
+    .mobile-nav a {
+      color: #fff;
+      font-size: 1.2rem;
+      margin: 0 0 18px 24px;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      display: block;
+      width: auto;
+      text-align: left;
+    }
+    .mobile-nav .cta-button {
+      background: #1AB16D;
+      color: #fff;
+      font-size: 1.2rem;
+      margin-top: 30px;
+      padding: 16px 0;
+      border-radius: 8px;
+      width: 80vw;
+      display: block;
+    }
+    body.nav-open {
+      overflow: hidden;
+    }
+    header nav {
+      display: flex;
     }
     header nav a {
       margin: 0 15px;
@@ -132,22 +218,29 @@
       background: black; /* White background for the main container */
       overflow: hidden; /* Ensures child elements don't break layout */
       margin-top: 40px; /* Space from header */
-      margin-bottom: 40px; /* Space from footer */
+      margin-bottom: 0px; /* Space from footer */
     }
 
     /* Hero Section Styling - Now part of the main container */
     .hero-content {
-      text-align: left; /* Changed to left */
-      padding: 100px 50px; /* Increased horizontal padding for better left alignment */
-  
-      background-attachment: fixed; /* Added for fixed background */
+      text-align: left;
+      padding: 40px 50px 100px 50px;
+      background-attachment: fixed;
       color: white;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 60vh;
+      min-height: 0;
       background-size: cover;
       background-position: center;
+      margin-bottom: 0;
+    }
+
+    .hero-heading-container {
+      text-align: left;
+      padding: 60px 0 0 0; /* Remove left/right padding for true left align */
+      color: white;
+      margin-bottom: 0;
     }
     .hero-content h1 {
       font-size: 3.5rem;
@@ -200,6 +293,7 @@
       align-items: center; /* Added for vertical centering */
       background: #fff; /* side gaps ke liye background */
       overflow: hidden;
+      margin-bottom: 32px; /* Add space below image for next section */
     }
 
     .hero-image-container img {
@@ -248,11 +342,13 @@
     .solutions-content {
       background: #222; /* Dark background for solutions */
       color: #fff;
-      padding: 80px 50px; /* Increased horizontal padding */
+      padding: 20px 50px; /* Increased horizontal padding */
       text-align: left; /* Changed to left */
     }
     .solutions-content h2 {
       color: #fff; /* White heading */
+      margin-bottom: 40px;
+      margin-top: 20px;
     }
     .solutions-content ul {
       list-style: none;
@@ -361,6 +457,7 @@
       color: #1AB16D; /* Green for stats */
       position: relative;
       padding-top: 60px;
+
     }
     .stat::before { /* Icon for stats */
       content: "★"; /* Placeholder icon */
@@ -385,7 +482,7 @@
     /* Form Section Styling */
     .form-content {
       background: #fff; /* White background for form */
-      padding: 80px 50px; /* Increased horizontal padding */
+      padding: 40px 50px; /* Increased horizontal padding */
       text-align: left; /* Changed to left */
     }
     .form-content h2 {
@@ -440,10 +537,10 @@
     .form-submit-button {
       background: #1AB16D;
       color: #fff;
-      padding: 15px 30px;
+      padding: 15px 15px;
       border: none;
       border-radius: 6px;
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
@@ -481,27 +578,54 @@
     }
 
     /* Responsive Adjustments */
-    @media (max-width: 768px) {
+
+    @media (max-width: 900px) {
       header {
         padding: 15px 20px;
-        flex-wrap: wrap;
-        justify-content: center;
       }
-      header nav {
-        margin-top: 15px;
-        width: 100%;
-        text-align: center;
+    }
+    @media (max-width: 768px) {
+      header {
+        position: relative;
       }
-      header nav a {
-        margin: 0 10px;
+      .hamburger {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-right: 0;
+        margin-left: 0;
       }
+      header nav,
+      header .cta-button {
+        display: none;
+      }
+      .mobile-nav {
+        display: none;
+      }
+      .mobile-nav.active {
+        display: flex;
+      }
+      .mobile-nav .cta-button {
+        display: none !important;
+      }
+    }
+    @media (max-width: 768px) {
       .landing-page-container {
         margin-top: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         border-radius: 0; /* Removed border-radius for full width look */
       }
       .hero-content {
-        padding: 80px 20px; /* Adjust padding for smaller screens */
+        padding: 20px 20px 40px 20px;
+        margin-bottom: 0;
+      }
+      .hero-heading-container {
+        padding: 40px 10px 0 10px; /* Small gap for mobile */
+      }
+      .hero-image-container {
+        margin-bottom: 20px;
       }
       .hero-content h1 {
         font-size: 2.5rem;
@@ -548,6 +672,7 @@
       }
       footer {
         padding: 40px 20px; /* Adjust padding for smaller screens */
+        margin-bottom: 40px;
       }
     }
 

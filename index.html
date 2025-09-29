@@ -48,32 +48,39 @@ document.addEventListener('DOMContentLoaded', function() {
 <body>
 
   <!-- Header -->
+
   <header>
     <img src="https://i.ibb.co/WyQkXzD/minpay-logo.png" alt="MinPay Logo">
+    <button class="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       <a href="#problems-section">Problems</a>
       <a href="#solutions-section">Solutions</a>
       <a href="#proof-section">Proof</a>
     </nav>
     <a href="#form-section" class="cta-button">Book Consultation</a>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#problems-section">Problems</a>
+      <a href="#solutions-section">Solutions</a>
+      <a href="#proof-section">Proof</a>
+    </div>
   </header>
 
   <!-- Main Landing Page Container -->
   <div class="landing-page-container">
 
-  
-
-    <!-- Image after Hero -->
-    <div class="hero-image-container">
-      <img src="Images/new image.jpg" alt="MinPay Debt Relief Solutions" />
-    </div>
-
-
-
-  <!-- 1. Hero Section (Above the Fold) -->
-    <div class="hero-content" id="hero-section">
-      <h2>Hero Section</h2>
+    <!-- Only Heading above Image -->
+    <div class="hero-heading-container" style="text-align:left;padding:60px 50px 0 50px;color:white;">
       <h1>Settle Your Loan at 30% of Amount</h1>
+    </div>
+    <div class="hero-image-container">
+      <img src="images/loan image person.jpg" alt="MinPay Debt Relief Solutions" />
+    </div>
+    <!-- Rest of Hero Section below image -->
+    <div class="hero-content" id="hero-section">
       <p>“Pay Less. Live Free. Protect Your CIBIL.”</p>
       <p class="eligibility">For Personal Loans & Credit Cards above ₹1 lakh</p>
       <a href="#form-section" class="cta-button">Book Consultation @ ₹51</a>
@@ -85,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- 2. Pain Section -->
     <div class="content-block problems-content" id="problems-section">
-      <h3>Pain Section</h3>
       <h2>Facing these problems every day?</h2>
       <ul>
         <li><span>💸</span> EMI taking away most of your salary</li>
@@ -98,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- 3. Solution Section -->
     <div class="solutions-content" id="solutions-section">
-      <h3>Solution Section </h3>
       <h2>What Our Lawyers Do for You</h2>
       <ul>
         <li><span class="icon"><i class="fas fa-hand-holding-usd"></i></span> Settle loans at 30–40% (eligible cases)</li>
@@ -107,13 +112,12 @@ document.addEventListener('DOMContentLoaded', function() {
         <li><span class="icon"><i class="fas fa-credit-card"></i></span> Guide you on CIBIL and how to rebuild</li>
       </ul>
       <div class="cta-wrapper">
-        <a href="#form-section" class="cta-button">Pay ₹51 & Talk to a Lawyer</a>
+       
       </div>
     </div>
 
     <!-- 4. Proof Section -->
     <div class="proof-content" id="proof-section">
-      <h3>Proof Section</h3>
       <h2>Real People. Real Results.</h2>
       <div class="testimonials-slider">
         <div class="testimonials-track">
@@ -132,9 +136,9 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
       <div class="stats">
-        <div class="stat">38%<span>average loan reduction</span></div>
+        <div class="stat">78%<span>average loan reduction</span></div>
         <div class="stat">500+<span>clients guided</span></div>
-        <div class="stat">24 hrs<span>call within</span></div>
+  <div class="stat">24hrs<span>call within</span></div>
       </div>
     </div>
 
@@ -142,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="form-content" id="form-section">
       <h2>Book Your Consultation</h2>
       <div class="form-fields-container">
-        <form action="#" method="POST"> <!-- Action attribute should point to your form submission endpoint -->
+  <form id="consultationForm" action="#" method="POST"> <!-- Action attribute should point to your form submission endpoint -->
           <div class="form-group">
             <label for="fullName">Full Name</label>
             <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
@@ -198,11 +202,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <footer>
     <p>Our team will call you within 24 hours of booking the consultation.</p>
-    <p>📞 Call us on <a href="tel:+919876543210">+91 98765 43210</a> in case of any issues.</p>
+    <p>📞 Call us on <a href="tel:+919876543210">+91 9211844051</a> in case of any issues.</p>
   </footer>
 
-</body>
+
 <script>
+// Hamburger menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector('.hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    document.body.classList.toggle('nav-open');
+  });
+  // Close menu on nav link click (mobile)
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileNav.classList.remove('active');
+      document.body.classList.remove('nav-open');
+    });
+  });
+});
 // Testimonial slider logic
 document.addEventListener('DOMContentLoaded', function() {
   const track = document.querySelector('.testimonials-track');
@@ -218,6 +240,20 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setInterval(nextSlide, 3500); // 3.5 seconds per slide
   goToSlide(0);
+});
+</script>
+</body>
+<script>
+// Redirect to payment link after form submit
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('consultationForm');
+  if(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Optionally, validate form fields here if needed
+      window.location.href = 'https://rzp.io/rzp/IfntxN89';
+    });
+  }
 });
 </script>
 </html>
