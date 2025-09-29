@@ -466,6 +466,8 @@
     .stat:nth-child(3)::before {
       content: "📞";
       font-size: 1.7rem;
+      position: relative;
+      top: 8px;
     } /* Call icon */
 
 
@@ -477,7 +479,8 @@
       font-size: 0.9rem;
       font-weight: 400;
       color: #555;
-      margin-top: 5px;
+      margin-top: 10px;
+      text-align: center;
     }
 
     /* Form Section Styling */
@@ -728,4 +731,11 @@
     }
   #clt{
     margin-bottom: 25px;
+  }
+  #call{
+    margin-bottom: 25px;
+    padding-bottom: 20%;
+  }
+  #cal{
+    margin-top: 20px;
   }
