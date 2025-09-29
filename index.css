@@ -581,7 +581,7 @@
 
     @media (max-width: 900px) {
       header {
-        padding: 15px 20px;
+        padding: 0px 20px;
       }
     }
     @media (max-width: 768px) {
@@ -618,7 +618,7 @@
         border-radius: 0; /* Removed border-radius for full width look */
       }
       .hero-content {
-        padding: 20px 20px 40px 20px;
+        padding: 0px 20px 40px 20px;
         margin-bottom: 0;
       }
       .hero-heading-container {
