@@ -212,14 +212,7 @@
       background-color: #158C57; /* Darker green on hover */
     }
 
-    /* Main Landing Page Container */
-    .landing-page-container {
-      width: 100%; /* Set to full width */
-      background: black; /* White background for the main container */
-      overflow: hidden; /* Ensures child elements don't break layout */
-      margin-top: 40px; /* Space from header */
-      margin-bottom: 0px; /* Space from footer */
-    }
+    
 
     /* Hero Section Styling - Now part of the main container */
     .hero-content {
@@ -235,13 +228,7 @@
       background-position: center;
       margin-bottom: 0;
     }
-
-    .hero-heading-container {
-      text-align: left;
-      padding: 60px 0 0 0; /* Remove left/right padding for true left align */
-      color: white;
-      margin-bottom: 0;
-    }
+    
     .hero-content h1 {
       font-size: 3.5rem;
       margin-bottom: 15px;
@@ -552,6 +539,7 @@
       background-color: #158C57;
       transform: translateY(-2px);
     }
+    
 
 
     /* Footer Styling */
@@ -613,7 +601,7 @@
     }
     @media (max-width: 768px) {
       .landing-page-container {
-        margin-top: 20px;
+        margin-top: 0px;
         margin-bottom: 0px;
         border-radius: 0; /* Removed border-radius for full width look */
       }
@@ -621,9 +609,7 @@
         padding: 0px 20px 40px 20px;
         margin-bottom: 0;
       }
-      .hero-heading-container {
-        padding: 40px 10px 0 10px; /* Small gap for mobile */
-      }
+/* Removed duplicate .hero-heading-container for mobile to fix heading visibility */
       .hero-image-container {
         margin-bottom: 20px;
       }
