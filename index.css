@@ -459,7 +459,7 @@
     .stat:nth-child(2)::before { content: "👥"; } /* Clients guided icon */
     .stat:nth-child(3)::before {
       content: "📞";
-      font-size: 1.5rem;
+      font-size: 1.7rem;
     } /* Call icon */
 
 
