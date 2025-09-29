@@ -217,7 +217,7 @@
     /* Hero Section Styling - Now part of the main container */
     .hero-content {
       text-align: left;
-      padding: 40px 50px 100px 50px;
+      padding: 20px 50px 10px 50px;
       background-attachment: fixed;
       color: white;
       display: flex;
@@ -243,7 +243,7 @@
     }
     .hero-content .eligibility {
       font-size: 1rem;
-      margin-bottom: 30px;
+      margin-top: 25px;
       font-weight: 400;
       opacity: 0.8;
       max-width: 700px; /* Limit width for readability */
@@ -251,12 +251,12 @@
     .hero-content .cta-button {
       padding: 15px 30px;
       font-size: 1.1rem;
-      margin-top: 20px;
+      margin-top: 30px;
       display: inline-block; /* Keep as inline-block for button behavior */
     }
     .hero-content .cta-subtitle {
       font-size: 0.9rem;
-      margin-top: 10px;
+      margin-top: 20px;
       opacity: 0.8;
       max-width: 700px; /* Limit width for readability */
     }
@@ -373,7 +373,7 @@
     /* Proof Section Styling */
     .proof-content {
       background: #F2F8F4; /* Light green background */
-      padding: 80px 50px; /* Increased horizontal padding */
+      padding: 40px 40px; /* Increased horizontal padding */
       text-align: left; /* Changed to left */
     }
     .proof-content h2 {
@@ -385,7 +385,7 @@
       overflow: hidden;
       position: relative;
       max-width: 500px;
-      margin: 0 auto 30px auto;
+      margin: 0 auto 10px 
     }
     .testimonials-track {
       display: flex;
@@ -435,7 +435,8 @@
       justify-content: center;
       align-items: flex-start;
       gap: 60px;
-      margin-top: 70px;
+
+      margin-top: 10px;
       flex-wrap: wrap;
       overflow-x: hidden;
       width: 100%;
@@ -623,7 +624,7 @@
         border-radius: 0; /* Removed border-radius for full width look */
       }
       .hero-content {
-        padding: 0px 20px 40px 20px;
+        padding: 0px 20px 20px 20px;
         margin-bottom: 0;
       }
 /* Removed duplicate .hero-heading-container for mobile to fix heading visibility */
@@ -732,9 +733,8 @@
   #clt{
     margin-bottom: 25px;
   }
-  #call{
-    margin-bottom: 25px;
-    padding-bottom: 20%;
+  #cl{
+    margin-bottom: 5px;
   }
   #cal{
     margin-top: 20px;
