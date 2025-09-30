@@ -251,8 +251,9 @@
     .hero-content .cta-button {
       padding: 15px 30px;
       font-size: 1.1rem;
-      margin-top: 30px;
+      margin-top: 25px;
       display: inline-block; /* Keep as inline-block for button behavior */
+      margin-bottom: 15px;
     }
     .hero-content .cta-subtitle {
       font-size: 0.9rem;
@@ -468,7 +469,7 @@
       content: "📞";
       font-size: 1.7rem;
       position: relative;
-      top: 8px;
+      top: 2px;
     } /* Call icon */
 
 
@@ -539,20 +540,20 @@
       background-size: 18px;
       padding-right: 40px; /* Make space for the arrow */
     }
-    .form-submit-button {
-      background: #1AB16D;
-      color: #fff;
-      padding: 15px 15px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1.5rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      width: auto; /* Allow button to size based on content */
-      display: block; /* Make it a block element */
-      margin: 30px 0 0 0; /* Align left */
-    }
+  .form-submit-button {
+  background: #1AB16D;
+  color: #fff;
+  padding: 15px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 235px; /* Allow button to size based on content */
+  display: block; /* Make it a block element */
+  margin: 30px auto 0 auto; /* Center the button horizontally */
+}
     .form-submit-button:hover {
       background-color: #158C57;
       transform: translateY(-2px);
@@ -737,5 +738,9 @@
     margin-bottom: 5px;
   }
   #cal{
-    margin-top: 20px;
+  margin-top: 5px;
+  }
+
+  #clll{
+    margin-bottom: 5px;
   }
