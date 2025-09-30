@@ -469,7 +469,7 @@
       content: "📞";
       font-size: 1.7rem;
       position: relative;
-      top: 2px;
+      top: 4px;
     } /* Call icon */
 
 
@@ -488,11 +488,13 @@
     /* Form Section Styling */
     .form-content {
       background: #fff; /* White background for form */
-      padding: 40px 50px; /* Increased horizontal padding */
+      padding: 30px 50px;  /* Increased horizontal padding */
       text-align: left; /* Changed to left */
+      padding-bottom: 0px;
     }
     .form-content h2 {
       margin-bottom: 40px;
+      
     }
     .form-fields-container { /* Container for form elements */
       max-width: 600px; /* Limit form width to keep it readable */
@@ -732,7 +734,7 @@
       }
     }
   #clt{
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
   #cl{
     margin-bottom: 5px;
