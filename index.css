@@ -465,12 +465,7 @@
     }
     .stat:nth-child(1)::before { content: "↓"; } /* Loan reduction icon */
     .stat:nth-child(2)::before { content: "👥"; } /* Clients guided icon */
-    .stat:nth-child(3)::before {
-      content: "📞";
-      font-size: 1.7rem;
-      position: relative;
-      top: 4px;
-    } /* Call icon */
+    .stat:nth-child(3)::before {content:  "📞";} /* Call icon */
 
 
 
